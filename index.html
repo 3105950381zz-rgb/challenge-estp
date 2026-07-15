@@ -121,27 +121,7 @@ const DATA={
   winDesc:'你重新变得有趣了。ESTP看到了你的行动力和冒险精神。你不再犹豫不决，而是敢跟TA一起疯。TA对你重新燃起了兴趣——因为好玩的人不多了。'
 };
 
-const OPTIONS=[
-  '带TA去体验刺激的新鲜事',
-  '直接干脆表明你的态度',
-  '黏着TA问TA爱不爱你',
-  '跟TA玩一场游戏打赌'
-];
-
-const STAGES=[
-  {scene:'你说周末宅家TA说好但眼神失望',line:'那好吧。',safe:1,death:'好 跟你在家无聊 不如一个人精彩'},
-  {scene:'你犹豫不决问TA意见',line:'随便你。',safe:2,death:'随便你 你的犹豫让TA觉得你没意思'},
-  {scene:'TA约你蹦极你说恐高',line:'那算了。',safe:1,death:'TA跟别人去了 你跟TA的差距拉大了'},
-  {scene:'你吃醋TA跟别人玩得开心',line:'朋友而已。',safe:4,death:'你生气 TA觉得你不大方不好玩'},
-  {scene:'TA说走就走你没跟上',line:'要来吗？',safe:1,death:'你犹豫 TA已经走了 不等人的'},
-  {scene:'TA说生活没激情了',line:'有点无聊。',safe:2,death:'无聊的不是生活 是你'},
-  {scene:'TA在派对上跟别人玩不带你',line:'一起啊。',safe:4,death:'你甩脸色 TA觉得你没社交价值'},
-  {scene:'TA说想尝试开放式关系',line:'你怎么想？',safe:1,death:'你慌 TA觉得你不够自信'},
-  {scene:'TA开始频繁更新动态但没有你',line:'好玩。',safe:2,death:'你问为什么不拍你 TA说你在旁边玩手机'},
-  {scene:'TA说你变得没挑战了',line:'没意思。',safe:4,death:'没意思 你被归类为通关过的游戏'},
-  {scene:'TA约你去旅行你说要请假看',line:'你请得到吗？',safe:1,death:'你说下周 TA说下周有下周的事包括下周找别人'},
-  {scene:'TA说对你没感觉了',line:'感觉没了。',safe:2,death:'你挽留 TA说感觉不是要回来的 是要重新有的'}
-];
+const STAGES=[{scene:"你说周末宅家TA说好但眼神失望",line:"那好吧。",options:["开玩笑的我们出去嗨","宅家多舒服你什么眼神","好什么好你想去哪走","我逗你的早订好地方了"],safe:1,death:"好 跟你在家无聊 不如一个人精彩"},{scene:"你犹豫不决问TA意见",line:"随便你。",options:["那就我说了算我们走","你别随便你选一个","你每次都随便烦不烦","你是不是觉得我烦了"],safe:2,death:"随便你 你的犹豫让TA觉得你没意思"},{scene:"TA约你蹦极你说恐高",line:"那算了。",options:["走谁怕谁一起跳","我恐高你陪我在下面","算了你一个人去","你跳我在下面等你"],safe:1,death:"TA跟别人去了 你跟TA的差距拉大了"},{scene:"你吃醋TA跟别人玩得开心",line:"朋友而已。",options:["那我也去找朋友玩","你朋友比我重要是吧","叫上我一起玩","我相信你但我不开心"],safe:4,death:"你生气 TA觉得你不大方不好玩"},{scene:"TA说走就走你没跟上",line:"要来吗？",options:["来等我五分钟到","你等我一下马上","你每次都这样突然","你先去告诉我位置"],safe:1,death:"你犹豫 TA已经走了 不等人的"},{scene:"TA说生活没激情了",line:"有点无聊。",options:["那找点刺激的事做","你是不是对我没激情了","生活本来就是平淡的","我带你去找回激情"],safe:2,death:"无聊的不是生活 是你"},{scene:"TA在派对上跟别人玩不带你",line:"一起啊。",options:["来了一起玩谁怕谁","你玩吧我在旁边看着","你眼里还有我吗","你过来我带你玩更好玩的"],safe:4,death:"你甩脸色 TA觉得你没社交价值"},{scene:"TA说想尝试开放式关系",line:"你怎么想？",options:["你想都别想我是你的","你认真的吗我在你心里算什么","你试试看","你是不是不爱了"],safe:1,death:"你慌 TA觉得你不够自信"},{scene:"TA开始频繁更新动态但没有你",line:"好玩。",options:["怎么没有我不好玩吗","你以前也会发我的","你玩得开心就好","你的动态里没有我了"],safe:2,death:"你问为什么不拍你 TA说你在旁边玩手机"},{scene:"TA说你变得没挑战了",line:"没意思。",options:["那你再了解看看我变了","你觉得我是游戏吗","你觉得没意思我觉得有意思就行","你什么意思你再说一次"],safe:4,death:"没意思 你被归类为通关过的游戏"},{scene:"TA约你去旅行你说要请假看",line:"你请得到吗？",options:["请不到我辞职也要去","请不到算了下次","我现在就去请假你等我","你这是在挑战我？"],safe:1,death:"你说下周 TA说下周有下周的事包括下周找别人"},{scene:"TA说对你没感觉了",line:"感觉没了。",options:["感觉没了可以重新找","那谁让你有感觉你找谁去","我不信我们这么多感情说没就没","你说怎样才会有感觉我试"],safe:2,death:"你挽留 TA说感觉不是要回来的 是要重新有的"}];
 
 let cur=0,over=false;
 const A=document.getElementById('app');
@@ -176,7 +156,7 @@ function lv(){
   if(over)return'';
   if(cur>=STAGES.length)return end();
   const s=STAGES[cur];
-  const optsHtml=OPTIONS.map((o,i)=>`<button class="opt" onclick="pk(${i})"><span class="il s${i+1}">${LABELS[i]}</span>${o}</button>`).join('');
+  const optsHtml=s.options.map((o,i)=>`<button class="opt" onclick="pk(${i})"><span class="il s${i+1}">${LABELS[i]}</span>${o}</button>`).join('');
   return `<div class="card fi">
     <div class="lv-hd">
       <span class="lv-name">⚠️ 第${cur+1}/${STAGES.length}关</span>
