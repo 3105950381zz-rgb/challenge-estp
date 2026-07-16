@@ -127,7 +127,7 @@ const DATA={
   emoji:'🔥',title:'ESTP',subtitle:'大胆冒险的行动派',
   desc:'ESTP 要刺激、要新鲜、要当下。当你变得无趣、犹豫、拖泥带水，TA对你的兴趣就像一个过时的游戏——不想再打开了。',
   color:'#f97316',qrSrc:'qrcode.jpg',
-  winDesc:'你重新变得有趣了。ESTP看到了你的行动力和冒险精神。你不再犹豫不决，而是敢跟TA一起疯。TA对你重新燃起了兴趣——因为好玩的人不多了。',difficulty:'★★★★☆',diffLabel:'冒险型 · 需要刺激和挑战',dist:[100,74,54,38,26,16,9,5,3,1.5,0.5,0.2,0.1]};
+  winDesc:'你重新变得有趣了。ESTP看到了你的行动力和冒险精神。你不再犹豫不决，而是敢跟TA一起疯。TA对你重新燃起了兴趣——因为好玩的人不多了。',difficulty:'★★★★☆',diffLabel:'冒险型 · 需要刺激和挑战',dist:[100,95,89,81,71,60,48,37,26,17,10,5,1.5]};
 
 const STAGES=[{scene:"你说周末宅家TA说好但眼神失望",line:"那好吧。",options:["骗你的 我早订好地方了 走不走","累了一周了在家好好休息不好吗","你看你那个眼神 说吧想去哪","宅家多舒服 你别不知足"],safe:1,death:"好 跟你在家无聊 不如一个人精彩"},{scene:"你犹豫不决问TA意见",line:"随便你。",options:["你别随便啊 你帮我选一个嘛","那你觉得A好还是B好","你是不是懒得跟我一起了","那就听我的 我们去做这个 保证好玩"],safe:4,death:"随便你 你的犹豫让TA觉得你没意思"},{scene:"TA约你蹦极你说恐高",line:"那算了。",options:["我真的恐高 你找别人陪你吧","恐高但是我想试试 有你在我不怕","蹦极太危险了 我们换个安全点的玩","你自己去跳吧 我在下面给你拍照"],safe:2,death:"TA跟别人去了 你跟TA的差距拉大了"},{scene:"你吃醋TA跟别人玩得开心",line:"朋友而已。",options:["玩得开心就行 下次带上我 我也想认识你朋友","我不爽但你自己把握","你跟TA们玩得比跟我开心多了","你少跟那些人混在一起"],safe:1,death:"你生气 TA觉得你不大方不好玩"},{scene:"TA说走就走你没跟上",line:"要来吗？",options:["等我一下 我换个衣服","现在就走？会不会太赶了","你先去 我等会找你来","来啊 走"],safe:4,death:"你犹豫 TA已经走了 不等人的"},{scene:"TA说生活没激情了",line:"有点无聊。",options:["生活不就这样吗 平平淡淡才是真","走 我带你去找点刺激的 你想怎么玩","无聊就找点事做啊 跟我说有什么用","你是不是觉得跟我在一起无聊了"],safe:2,death:"无聊的不是生活 是你"},{scene:"TA在派对上跟别人玩不带你",line:"一起啊。",options:["你朋友挺有意思的 介绍我认识一下","你过来 我带你玩更好玩的","你玩你的 不用管我","你跟TA们聊什么呢聊那么开心"],safe:1,death:"你甩脸色 TA觉得你没社交价值"},{scene:"TA说想尝试开放式关系",line:"你怎么看？",options:["你是不是不爱我了","你在开玩笑吧","我不接受 但我欣赏你敢这么直接跟我说","好啊 那我也试试"],safe:3,death:"你慌 TA觉得你不够自信"},{scene:"TA开始频繁更新动态但没有你",line:"好玩。",options:["你最近都不发关于我的了","你能不能别老发这些","你最近挺爱刷存在感的嘛","你这张拍得不错 下次我给你拍更好的"],safe:4,death:"你问为什么不拍你 TA说你在旁边玩手机"},{scene:"TA说你变得没挑战了",line:"没意思。",options:["我对你没挑战了那你去找有挑战的啊","那你等着 我会让你重新觉得我有意思的","没意思就分吧","你想要什么挑战你说"],safe:2,death:"没意思 你被归类为通关过的游戏"},{scene:"TA约你去旅行你说要请假看",line:"你请得到吗？",options:["你在挑战我？好 我请给你看","我回去看看好不好请假","下周末吧 这周来不及","请假太难了 换个周末行不行"],safe:1,death:"你说下周 TA说下周有下周的事包括下周找别人"},{scene:"TA说对你没感觉了",line:"感觉没了。",options:["你这样说我很伤心","感觉是可以重新培养的 你再给我个机会","行 那就到这吧","怎样才有感觉 你说 我做给你看"],safe:4,death:"你挽留 TA说感觉不是要回来的 是要重新有的"}];
 
@@ -137,7 +137,7 @@ const LABELS=['A','B','C','D'];
 const SK='mbti_wb';
 function ls(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
 function sv(t,l,w){const a=ls();if(!a[t]||a[t].best<l){a[t]={best:l,won:w,date:Date.now()}}a[t].plays=(a[t].plays||0)+1;localStorage.setItem(SK,JSON.stringify(a))}
-function pct(l){const d=DATA.dist;return Math.round((d[Math.min(l,d.length-1)]||0)*10)/10}
+function pct(l){return Math.round((100-(d[Math.min(Math.max(l-1,0),d.length-1)]||0))*10)/10}
 function statsHTML(level){
   const p=pct(level);
   return '<div class="stats-box">'
